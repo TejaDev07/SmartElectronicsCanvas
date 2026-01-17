@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f8f9fa;
+}
+
+/* ReactFlow Base Styles */
+.react-flow {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+}
+
+.react-flow__viewport {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+
+/* Nodes */
+.react-flow__node {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.react-flow__node:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+  cursor: grab;
+  background-color: #f0e6ff;
+  border: 2px solid #667eea;
+}
+
+.react-flow__node.selected {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.5);
+}
+
+/* Edges */
+.react-flow__edge-path {
+  stroke-width: 2;
+  stroke: #4f46e5;
+}
+
+.react-flow__edge.animated path {
+  animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+/* Handles */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background-color: #667eea;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.react-flow__handle:hover {
+  background-color: #5a67d8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Controls Panel */
+.react-flow__controls {
+  background-color: white;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  gap: 8px;
+  padding: 8px;
+}
+
+.react-flow__controls-button {
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  color: #667eea;
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.react-flow__controls-button:hover {
+  background-color: #f3f4f6;
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.react-flow__controls-button.react-flow__controls-button--active {
+  background-color: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+/* MiniMap */
+.react-flow__minimap {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.react-flow__minimap-canvas {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Attribution */
+.react-flow__attribution {
+  background-color: rgba(0, 0, 0, 0.05);
+  font-size: 11px;
+  color: #667eea;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Input and Button Base Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Button Hover Effects */
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .react-flow__controls {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .react-flow__minimap {
+    display: none;
+  }
+  
+  input[type="text"] {
+    min-width: 200px !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .react-flow__controls,
+  .react-flow__minimap,
+  .react-flow__attribution {
+    display: none;
+  }
+}
